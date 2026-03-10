@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Letters Archive - Unsaid Archive</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Archive page improvements */
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef, #fbc2eb);
+            color: #222;
+        }
+
+        .layout {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 220px;
+            background: #ffffffee; /* semi-opaque white */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            backdrop-filter: blur(10px);
+            border-right: 1px solid #ffd1e0;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+            color: #ff1a6b;
+            text-align: center;
+        }
+
+        .sidebar input {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .sidebar button {
+            background: #ff4d88;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .sidebar button:hover {
+            background: #e6006a;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #ff1a6b;
+            font-weight: bold;
+            padding: 8px 0;
+            transition: color 0.2s;
+        }
+
+        .sidebar a:hover {
+            color: #e6006a;
+        }
+
+        /* MAIN AREA */
+        .main {
+            flex: 1;
+            padding: 40px;
+            background: #fff;
+            border-top-left-radius: 20px;
+            overflow-y: auto;
+        }
+
+        .main h1 {
+            color: #ff1a6b;
+            margin-bottom: 20px;
+        }
+
+        /* LETTER CARDS */
+        #letters {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .letter {
+            background: #ffe6f0;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .letter:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .letter h3 {
+            margin: 0 0 5px 0;
+            color: #ff1a6b;
+        }
+
+        .letter p {
+            margin: 0;
+            color: #222;
+        }
+
+        .letter a {
+            color: #ff4d88;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .letter a:hover {
+            color: #e6006a;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 600px) {
+            .layout {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                padding: 15px;
+            }
+
+            .main {
+                padding: 20px;
+                border-radius: 0;
+            }
+        }
+
+    </style>
+</head>
+<body onload="displayLetters()">
+
+<div class="layout">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>💗 Unsaid</h2>
+        <input id="searchInput" placeholder="Search name">
+        <button onclick="searchLetters()">Search</button>
+        <hr>
+        <a href="dashboard.html">Write Letter</a>
+        <a href="archive.html">Archive</a>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+        <h1>Letters Archive</h1>
+        <div id="letters">
+            <!-- Letters will be injected here by app.js -->
+        </div>
+    </div>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
